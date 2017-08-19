@@ -148,9 +148,9 @@ bool CheckBinary(string input){
     return true;
 }
 
-//CheckNegative function checks input number for negative sign, returns false if found, otherwise true
-bool CheckNegative(string input){
-    if(input[0] == '-')
+//CheckNum function checks input number for negative sign or decimal, returns false if found, otherwise true
+bool CheckNum(string input){
+    if(input.find("-") || input.find("."))
         return false;
     return true;
 }
@@ -183,6 +183,13 @@ int CheckIntInput(int command){
     int num_input;
     cin >> num_input;
     cout << endl;
+    if(cin.fail()){
+        cin.clear();
+        cin.ignore();
+        cout <<"Error: not an integer value." << endl;
+        return 0;
+    }
+    
     if(num_input < 0){
         cout << "Error: no negative values." << endl;
         return 0;
