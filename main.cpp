@@ -161,7 +161,7 @@ string CheckStrInput(int command){
     string str_input;
     cin >> str_input;
     cout << endl;
-    if(!CheckNegative(str_input)){
+    if(!CheckNum(str_input)){
         cout << "Error: no negative values. Return to Main Menu." << endl;
         return "";
     }
