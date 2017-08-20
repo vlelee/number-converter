@@ -7,13 +7,29 @@
 
 using namespace std;
 
-string reverseNum(string num){
-    string rNum;
-    for(int i = num.length() - 1; i > -1; i--){
-        rNum.push_back(num[i]);
-    }
-    return rNum;
-}
+//main conversion functions
+string DecToBin(int dec_num);
+string DecToHex(int dec_num);
+int BinToDec(string binary_num);
+int HexToDec(string hex_num);
+string BinToHex(string binary_num);
+string HexToBin(string hex_num);
+
+//input functions
+void MenuCommand();
+void ExecuteCommand(int command);
+bool checkBinary(string input);
+bool checkNum(string input);
+string CheckStrInput(int command);
+int CheckIntInput(int command);
+
+//helper functions
+string to_string(int num);
+string reverseNum(string num);
+char getHexLetter(int num); 
+int getDecLetter(char l);
+int ConvertToDec(string num, int power);
+
 
 string to_string(int num){
     ostringstream convert;
@@ -21,10 +37,12 @@ string to_string(int num){
     return convert.str();
 }
 
-string to_string(float num){
-    ostringstream convert;
-    convert << num;
-    return convert.str();
+string reverseNum(string num){
+    string rNum;
+    for(int i = num.length() - 1; i > -1; i--){
+        rNum.push_back(num[i]);
+    }
+    return rNum;
 }
 
 char getHexLetter(int num){
